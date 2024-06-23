@@ -2,7 +2,20 @@ package br.com.empresa.votacao.domain.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
+import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.core.sym.Name;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,10 +24,24 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @SuperBuilder
-public class Sessao {
-	Pauta pauta; 
-	LocalDateTime inicio;
-	LocalDateTime fim;
-	List<Voto> votos;
+@Entity
+@Table(name = "SESSAO")
+public class Sessao extends AbstractEntity<Long> {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_PAUTA", referencedColumnName = "ID")
+	private Pauta pauta; 
+	
+	@Column(name = "INICIO")
+	private LocalDateTime inicio;
+	
+	@Column(name = "FIM")
+	private LocalDateTime fim;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private List<Voto> votos;
 }
