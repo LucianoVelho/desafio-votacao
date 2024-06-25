@@ -8,6 +8,7 @@ import org.hibernate.annotations.ManyToAny;
 
 import com.fasterxml.jackson.core.sym.Name;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,8 +33,8 @@ public class Sessao extends AbstractEntity<Long> {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_PAUTA", referencedColumnName = "ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pauta_id")
 	private Pauta pauta; 
 	
 	@Column(name = "INICIO")
@@ -42,6 +43,6 @@ public class Sessao extends AbstractEntity<Long> {
 	@Column(name = "FIM")
 	private LocalDateTime fim;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "sessao", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Voto> votos;
 }

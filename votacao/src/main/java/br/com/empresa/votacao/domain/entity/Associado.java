@@ -2,6 +2,7 @@ package br.com.empresa.votacao.domain.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
@@ -23,6 +24,6 @@ public class Associado extends Pessoa {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "associado", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List <Voto> votos;
 }
