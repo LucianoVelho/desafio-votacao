@@ -34,5 +34,5 @@ public class Pessoa {
 	private String nome;
 	
 	@Column(name = "CPF")
-	private String CPF;
+	private String cpf;
 }
