@@ -25,12 +25,12 @@ public class Voto extends AbstractEntity<Long> {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_ASSOCIADO", referencedColumnName = "ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "associado_id")
 	private Associado associado;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_SESSAO", referencedColumnName = "ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sessao_id")
 	private Sessao sessao;
 	
 	@Column(name = "VOTO_ASSOCIADO")

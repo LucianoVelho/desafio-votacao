@@ -3,6 +3,7 @@ package br.com.empresa.votacao.domain.entity;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,7 +33,7 @@ public class Pauta extends AbstractEntity<Long>  {
 	@Column(name = "DESCRICAO")
 	private String descricao;
 	
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "pauta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<Sessao> sessoes;
 	
 }
