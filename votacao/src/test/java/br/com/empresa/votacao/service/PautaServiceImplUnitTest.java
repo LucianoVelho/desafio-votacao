@@ -8,8 +8,13 @@ import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import br.com.empresa.votacao.domain.dto.PautaDTO;
+import br.com.empresa.votacao.domain.entity.Pauta;
+import br.com.empresa.votacao.exceptions.exception.NomeDuplicadoException;
+import br.com.empresa.votacao.repository.PautaRepository;
+import br.com.empresa.votacao.exceptions.exception.NotFoundException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
@@ -19,11 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.empresa.votacao.domain.dto.PautaDTO;
-import br.com.empresa.votacao.domain.entity.Pauta;
-import br.com.empresa.votacao.exceptions.exception.NomeDuplicadoException;
-import br.com.empresa.votacao.exceptions.exception.NotFoundException;
-import br.com.empresa.votacao.repository.PautaRepository;
+
 
 @SpringBootTest
 public class PautaServiceImplUnitTest {

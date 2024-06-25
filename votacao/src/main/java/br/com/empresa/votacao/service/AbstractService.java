@@ -20,5 +20,13 @@ public abstract class AbstractService {
         }
         return dtos;
     }
+    
+    public <E, D> List<D> convertToDTO(List<E> entities, Class<D> dtoClass) {
+        List<D> dtos = new ArrayList<>();
+        for (E entity : entities) {
+            dtos.add(modelMapper.map(entity, dtoClass));
+        }
+        return dtos;
+    }
 	
 }
