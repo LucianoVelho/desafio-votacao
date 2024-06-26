@@ -33,7 +33,4 @@ public class Pauta extends AbstractEntity<Long>  {
 	@Column(name = "DESCRICAO")
 	private String descricao;
 	
-	@OneToMany(mappedBy = "pauta", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	private List<Sessao> sessoes;
-	
 }

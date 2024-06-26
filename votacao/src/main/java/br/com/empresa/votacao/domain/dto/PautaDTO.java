@@ -27,5 +27,4 @@ public class PautaDTO extends AbstractDTO<Long> {
 	@Size(max = 255)
 	private String descricao;
 	
-	private List<SessaoDTO> sessoes;
 }
