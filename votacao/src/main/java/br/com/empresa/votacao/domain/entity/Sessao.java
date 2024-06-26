@@ -42,7 +42,5 @@ public class Sessao extends AbstractEntity<Long> {
 	
 	@Column(name = "FIM")
 	private LocalDateTime fim;
-	
-	@OneToMany(mappedBy = "sessao", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	private List<Voto> votos;
+
 }

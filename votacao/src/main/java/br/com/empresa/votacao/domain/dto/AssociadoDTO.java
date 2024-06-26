@@ -12,11 +12,9 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @SuperBuilder
+@AllArgsConstructor
 public class AssociadoDTO extends PessoaDTO {
 	
-	private List <Voto> votos;
 
 }

@@ -15,15 +15,9 @@ import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @SuperBuilder
+@AllArgsConstructor
 @Entity
 @Table(name = "ASSOCIADO")
 public class Associado extends Pessoa {
-	
-	private static final long serialVersionUID = 1L;
-	
-	@OneToMany(mappedBy = "associado", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-	private List <Voto> votos;
 }
